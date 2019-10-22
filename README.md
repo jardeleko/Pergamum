@@ -1,6 +1,6 @@
 ![Imagem brasão UFFS](img/uffs.png)
 
-#### Curso de Ciência da Computação - Universidade Federal da Fronteira Sul (UFFS) ####
+#### Curso de Ciência da Computação ####
 
 ## Pergamum WebChat SAE ##
 
