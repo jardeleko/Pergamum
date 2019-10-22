@@ -1,4 +1,4 @@
-![Imagem brasão UFFS](../img/uffs.png)
+![Imagem brasão UFFS](img/uffs.png)
 
 #### Curso de Ciência da Computação - Universidade Federal da Fronteira Sul (UFFS) ####
 
