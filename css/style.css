@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
+#form {
+    margin: 20px auto 20px auto;
+    color: red;
+    background: red;
+}
