@@ -8,3 +8,4 @@ http.createServer(function (req, res) {
       res.end();
     });
 }).listen(8080);
+console.log("server in: http://localhost:8080")
