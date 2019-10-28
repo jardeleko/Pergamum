@@ -1,9 +1,15 @@
 * {
     box-sizing: border-box;
 }
-
-#form {
-    margin: 20px auto 20px auto;
-    color: red;
-    background: red;
+body {
+	align-items: center;
+	background: #f7f7f7;
 }
+#form {
+	
+    margin: 20px auto 20px auto;
+    color: solid black;
+    background: #f7f7f7;
+
+}
+
