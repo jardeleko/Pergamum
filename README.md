@@ -1,4 +1,4 @@
-![Imagem brasão UFFS](img/uffs.png)
+![Imagem brasão UFFS](public/img/uffs.png)
 
 #### Curso de Ciência da Computação ####
 
