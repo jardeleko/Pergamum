@@ -2,18 +2,21 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const path = require('path')
-let React = require('react')
-let ReactDOM = require('react-dom')
+const server = require('http').createServer(app)
+//let React = require('react')
+//let ReactDOM = require('react-dom')
 var http = require('http')
 var fs  = require('fs')
-const PORT = 1921
-//if using path static app.use(express.static())
-//app.use(express.static(path.join(__dirname, 'static')))
+const PORT = 3000
 
-app.get('/', (req, res) =>  {
+app.use(express.static(path.join(__dirname, 'public')))
+app.set('views', path.join(__dirname, 'public'))
+app.engine('html', require('ejs').renderFile)
+app.set('view engine', 'html')
+
+app.use('/', (req, res) =>  {
   //i dont now, but this format maybe return renderized ok 
- ReactDOM.render('/routes/index.html')
-
+  res.render('index.html')
 })
 
 app.listen(PORT, () => {
