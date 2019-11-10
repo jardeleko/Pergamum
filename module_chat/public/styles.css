@@ -1,10 +1,15 @@
 html, body {
   height: 100%;
+  float: center;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7f7;
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -21,19 +26,22 @@ input {
   border: 1px solid #ddd;
   height: 50px;
   padding: 0 20px;
-  font-size: 14px;
+  font-size: 14px; 
 }
 
 button {
+  align-items: center;
   width: 600px;
   height: 50px;
   font-size: 14px;
-  background: #069;
   text-align: center;
   line-height: 50px;
   font-weight: bold;
-  color: #FFF;
+  background:#519387;
+  text-transform: uppercase;
   margin-top: 10px;
+  border-color: solid blue;
+  color: #fff;
 }
 
 .messages {
@@ -42,4 +50,5 @@ button {
   margin: 20px 0;
   border: 1px solid #ddd;
   padding: 20px;
+  background: #fff;
 }

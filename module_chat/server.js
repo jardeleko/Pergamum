@@ -14,15 +14,17 @@ app.use('/', (req, res) => {
     res.render('index.html')
 })
 let messages = []
+
 io.on('connection', socket => {
     console.log(`socket conectado: ${socket.id}`)
-    socket.emit('previousMessages', messages)
+    socket.emit('previousMessage	', messages)
+
     socket.on('sendMessage', data => {
-        messages,push(data)
+        messages.push(data)
         socket.broadcast.emit('receivedMessage', data)
         console.log(data)
     })
 })
 
 server.listen(PORT)
-console.log("server esta rodando em http://localhost:"+PORT)  
+console.log("http://localhost:"+PORT)  
