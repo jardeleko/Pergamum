@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "ejs": "^2.7.1",
+    "ejs": "^2.7.2",
     "express": "^4.17.1",
     "socket.io": "^2.3.0"
   }
