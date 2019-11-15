@@ -18,6 +18,10 @@ app.get('/chat', (req, res) => {
 	res.render('routes/home.html')
 })
 
+app.get('/create', (req, res) => {
+	res.render('routes/cadaster.html')
+})
+
 app.listen(PORT, () => {
   console.log("Servidor rodando na url http://localhost:"+PORT)  
 })
