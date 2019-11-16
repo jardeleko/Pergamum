@@ -22,11 +22,11 @@ app.get('/', (req, res) =>  {
 })
 
 app.get('/chat', (req, res) => {
-	res.render('routes/home.html')
+	res.render('html/home.html')
 })
 
 app.get('/create', (req, res) => {
-	res.render('routes/cadaster.html')
+	res.render('html/cadaster.html')
 })
 
 app.listen(PORT, () => {
