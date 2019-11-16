@@ -14,7 +14,7 @@ app.use('/', (req, res) => {
     res.render('index.html')
 })
 
-io.on('connection', socket => {
+io.on('/', socket => {
     console.log(`socket conectado: ${socket.id}`)
     console.log("entrou aqui")
 })
