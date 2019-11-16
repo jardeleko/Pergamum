@@ -4,9 +4,11 @@ const app = express()
 const path = require('path')
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
+const route = require('./routes/route')
 
 const PORT = 8888
 
+app.use(route)
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'public'))
 app.engine('html', require('ejs').renderFile)

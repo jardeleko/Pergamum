@@ -12,5 +12,10 @@
     "passport-local": "^1.0.0",
     "sequelize": "^5.21.2",
     "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "b": "^2.0.1",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1"
   }
 }

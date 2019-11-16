@@ -1,30 +1,26 @@
-const connect = require('con')
+const connect = require('./con')
 
-const Users = connect.sequelize.define('users', \{
+const Users = connect.sequelize.define('users', {
 	id: {
-		type: connect.sequelize.INTEGER,
+		type: connect.Sequelize.INTEGER,
 		autoIncrement: true,
 		primaryKey: true
 	},
-	iduffs: {
-		type: connect.sequelize.STRING,
+	user: {
+		type: connect.Sequelize.STRING,
 		allowNull: false  
 	},
 	email: {
-		type: connect.sequelize.STRING,
+		type: connect.Sequelize.STRING,
 		allowNull: false 
 	},
 	passw: {
-		type: connect.sequelize.STRING,
+		type: connect.Sequelize.STRING,
 		allowNull: false
-	},
-	confirm: {
-		type: connect.sequelize.STRING,
-		allowNull: false	
 	},
 
 	iServer: {
-		type: connect.sequelize.STRING
+		type: connect.Sequelize.STRING
 	}
 })
 

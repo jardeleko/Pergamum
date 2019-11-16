@@ -5,11 +5,11 @@ const Users = require("../models/Users")
 
 module.exports = function(passport){
 
-    passport.use(new localStrategy({usernameField: 'idUFFS', passwordField: 'senha'}, (idUFFS, senha, done) => {
+    passport.use(new localStrategy({usernameField: 'username', passwordField: 'senha'}, (username, senha, done) => {
        
         Users.findOne({
            where:{
-                user: [idUFFS]
+                user: [username]
             }}).then((users) => {
 
                 if(!users) {

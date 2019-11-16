@@ -14,18 +14,30 @@
 </head>
 <body>
 	<header>
-	<include file="navheader.html">
+	
+    <script type="text/javascript">
+
+      var errorMessage = erros;
+
+      socket.on('previousMessage', function(messages) {
+        for(message of messages){
+          renderMessage(message);
+        }
+      });
+    </script>  
 	</header>
+
 	<!-- main -->
 	<div class="main-w3layouts wrapper">
 		<h1>Crie sua conta Pergamum - UFFS</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
-				<form action="#" method="post" >
-					<input class="text" type="text" alt="entre com o id uffs" name="Username" placeholder="Id-UFFS" required="">
-					<input class="text email" type="email" alt="entre com o email" name="email" placeholder="Email" required="">
-					<input class="text" type="password" alt="entre com a senha" name="password" placeholder="Senha" required="">
-					<input class="text w3lpass" type="password" alt="confirme a senha" name="password" placeholder="Confirmar Senha" required="">
+
+				<form action="/createAcc" method="POST">
+					<input class="text" type="text" alt="entre com o id uffs" name="user_sign" placeholder="Id-UFFS" required="">
+					<input class="text email" type="email" alt="entre com o email" name="email_sign" placeholder="Email" required="">
+					<input class="text" type="password" alt="entre com a senha" name="pass_sign" placeholder="Senha" required="">
+					<input class="text w3lpass" type="password" alt="confirme a senha" name="pass_sign2" placeholder="Confirmar Senha" required="">
 
 					<div class="wthree-text">
 						<label class="anim">

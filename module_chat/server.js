@@ -4,7 +4,9 @@ const PORT = 8080
 const app = express()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
+const route = require('route')
 
+app.use(route);
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'public'))
 app.engine('html', require('ejs').renderFile)
