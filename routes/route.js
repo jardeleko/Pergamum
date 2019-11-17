@@ -8,6 +8,8 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require('passport');
 require('../config/auth')(passport);
+const {iServer} = require('./protected'); //middleware restrict page
+
 
 router.use(methodOverride('_method'))
 router.use(bodyParser.urlencoded({extended: false}))
@@ -23,6 +25,7 @@ router.use(passport.initialize())
 router.use(passport.session())
 router.use(flash())
 
+
 router.post('/', (req, res, next) => {
 	passport.authenticate("local", {
 		successRedirect: "/chat",
@@ -37,14 +40,26 @@ router.get('/logout', (req, res, next) => {
 	next()
 })
 
+router.get('/', (req, res) =>  {
+	res.render('index')
+  })
+  
+router.get('/chat', (req, res) => {
+	if(req.isAuthenticated())
+		var user_name = req.session.user
+		console.log(user_name)
+		console.log(req.$_session)
+	res.render('html/home', {user_name: user_name})
+})
+  
+router.get('/create', (req, res) => {
+	res.render('html/cadaster')
+})
+
 router.post('/createAcc',(req, res) => { /* create User*/
 	
 	let erros = []
-	console.log(req.body.user_sign)
-	console.log(req.body.email_sign)
-	console.log(req.body.pass_sign)
-	console.log(req.body.pass_sign)
-	console.log(erros)
+
 
 	if(!req.body.user_sign || typeof req.body.user_sign == undefined || req.body.user_sign == null){
 		erros.push({message: "campo usuario esta vazio, crie um @username"})
@@ -67,7 +82,6 @@ router.post('/createAcc',(req, res) => { /* create User*/
 	}
 	
 	else {	
-		console.log("checked")
 		//hashing password
 		let password = req.body.pass_sign;
 		const salt = bcrypt.genSaltSync(10);
@@ -81,7 +95,6 @@ router.post('/createAcc',(req, res) => { /* create User*/
 			passw: password,
 
 		}).then(() => {
-			console.log('ok')
 			req.flash("success_msg", "Usuario cadastrado");
 			res.redirect('/');
 		}).catch((err) => {

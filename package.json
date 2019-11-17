@@ -3,7 +3,6 @@
     "body-parser": "^1.19.0",
     "ejs": "^2.7.2",
     "express": "^4.17.1",
-    "express-session": "^1.17.0",
     "method-override": "^3.0.0",
     "mongoose": "^5.7.11",
     "multer": "^1.4.2",
@@ -16,6 +15,7 @@
   "devDependencies": {
     "b": "^2.0.1",
     "bcryptjs": "^2.4.3",
-    "connect-flash": "^0.1.1"
+    "connect-flash": "^0.1.1",
+    "express-session": "^1.17.0"
   }
 }

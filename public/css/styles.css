@@ -1,0 +1,78 @@
+html, body {
+  background:#519387;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #519387, #8DC26F);
+  background: -moz-linear-gradient(to top, #519387, #8DC26F);
+  background: -o-linear-gradient(to top, #519387, #8DC26F);
+  background: linear-gradient(to top, #519387, #8DC26F);
+  background-size: cover;
+  background-attachment: fixed;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#chat {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+input {
+  float: center;
+  align-items: center;
+  width: 600px;
+  border: 1px solid #ddd;
+  height: 50px;
+  padding: 0 20px;
+  font-size: 14px; 
+}
+.input_box {
+  float: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 640px;
+  border: 1px solid #ddd;
+  height: 50px;
+  padding: 0 20px;
+  font-size: 14px; 
+}
+
+button {
+  width: 640px;
+  height: 50px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 50px;
+  font-weight: bold;
+  background:#b7b7b7;
+  text-transform: uppercase;
+  margin-top: 10px;
+  border-color: solid blue;
+  color: #fff;
+}
+
+.messages {
+
+  margin: 20px 0;
+  border-radius: 10px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+
+#form_send {
+  border-radius: 10px;
+    margin: auto auto auto auto;
+    color: solid black;
+    
+}

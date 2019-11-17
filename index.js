@@ -1,36 +1,29 @@
-const express = require('express')
-const app = express()
-//const bodyParser = require('body-parser')
-const path = require('path')
-const http = require('http').createServer(app)
-const io = require('socket.io')(http)
-const route = require('./routes/route')
+const express = require('express');
+const path = require('path');
+const PORT = 8888;
+const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+const route = require('./routes/route');
 
-const PORT = 8888
+app.use(route);
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'public'));
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
-app.use(route)
-app.use(express.static(path.join(__dirname, 'public')))
-app.set('views', path.join(__dirname, 'public'))
-app.engine('html', require('ejs').renderFile)
-app.set('view engine', 'html')
-app.set('io', io)
+let messages = [];
 
 io.on('connection', socket => {
-    console.log(`socket conectado: ${socket.id}`)
+    console.log(`socket conectado: ${socket.id}`);
+	socket.emit('previousMessage', messages);
+    
+    socket.on('sendMessage', data => {
+		messages.push(data);
+		socket.broadcast.emit('receivedMessage', data);
+    })
 })
 
-app.get('/', (req, res) =>  {
-  res.render('index.html')
-})
-
-app.get('/chat', (req, res) => {
-	res.render('html/home.html')
-})
-
-app.get('/create', (req, res) => {
-	res.render('html/cadaster.html')
-})
-
-app.listen(PORT, () => {
-  console.log("Servidor rodando na url http://localhost:"+PORT)  
+server.listen(PORT, () => {
+  console.log("Servidor rodando na url http://localhost:"+PORT);  
 })
