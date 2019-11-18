@@ -54,7 +54,6 @@ router.get('/', (req, res) =>  {
   
 router.get('/chat', (req, res) => {
 	if(req.isAuthenticated())
-		console.log(res.locals.user.user)
 		res.render('html/home', {username : res.locals.user.user})
 })
   
