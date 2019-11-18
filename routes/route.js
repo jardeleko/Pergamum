@@ -21,17 +21,25 @@ router.use(session ({
 	saveUninitialized: true
 }))
 
+
 router.use(passport.initialize())
 router.use(passport.session())
 router.use(flash())
 
-
-router.post('/', (req, res, next) => {
+router.post('/', (req, res, next) => { 
 	passport.authenticate("local", {
 		successRedirect: "/chat",
 		failureRedirect: "/",
 		failureFlash: true 
 	})(req, res, next)
+})
+
+router.use((req, res, next) => { //var globals
+	res.locals.success_msg = req.flash("success_msg")
+	res.locals.error_msg = req.flash("error_msg")
+	res.locals.user = req.user || null;
+	res.locals.error = req.flash("error")
+	next()
 })
 
 router.get('/logout', (req, res, next) => {
@@ -46,10 +54,8 @@ router.get('/', (req, res) =>  {
   
 router.get('/chat', (req, res) => {
 	if(req.isAuthenticated())
-		var user_name = req.session.user
-		console.log(user_name)
-		console.log(req.$_session)
-	res.render('html/home', {user_name: user_name})
+		console.log(res.locals.user.user)
+		res.render('html/home', {username : res.locals.user.user})
 })
   
 router.get('/create', (req, res) => {
@@ -61,7 +67,7 @@ router.post('/createAcc',(req, res) => { /* create User*/
 	let erros = []
 
 
-	if(!req.body.user_sign || typeof req.body.user_sign == undefined || req.body.user_sign == null){
+	if(!req.body.username || typeof req.body.username == undefined || req.body.username == null){
 		erros.push({message: "campo usuario esta vazio, crie um @username"})
 	}
 
@@ -74,7 +80,7 @@ router.post('/createAcc',(req, res) => { /* create User*/
 	if(req.body.pass_sign != req.body.pass_sign2){
 		erros.push({message: "Senhas não compatíveis"})
 	}
-	if(req.body.name_sign < 8){
+	if(req.body.pass_sign < 8){
 		erros.push({message: "É necessário no mínimo 8 caracteres na senha"})
 	}
 	if(erros.length > 0){
@@ -90,7 +96,7 @@ router.post('/createAcc',(req, res) => { /* create User*/
 		console.log(password)
 
 			Users.create({
-			user: req.body.user_sign,
+			user: req.body.username,
 			email: req.body.email_sign,
 			passw: password,
 

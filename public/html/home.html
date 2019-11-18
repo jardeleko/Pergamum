@@ -44,24 +44,24 @@
         </div>
           
         <div class="outgoing_msg">
-          <!-- aqui vai a (objeto 	  	<div class="sent_msg">
-              <p name="{{username}}"></p> 
-              <p div class="messages"> </p>
-              <span class="time_date"> <script type="text/javascript">document.write(new Date)</script> </div>
+          <!-- aqui vai a (objeto 	  	
+          <div class="sent_msg">
+
+              
           </div>) mensagem -->            
         <div class="incoming_msg">
         </div>
           <div class="type_msg">
             <div class="input_msg_write">
               <input type="text" class="write_msg" name="message" placeholder="Escreva uma mensagem" />
-              <button class="msg_send_btn"type="submit" ><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+              <button class="msg_send_btn" type="submit" ><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
             </div>
           </div>
         </div>
       </div>
     </form>      
   
-      <p class="text-center top_spac"> Design by <a target="_blank" href="#">Sunil Rajput</a></p>
+          <p class="text-center top_spac"> Design by <a target="_blank" href="#">Sunil Rajput</a></p>
           
     
 
@@ -70,14 +70,14 @@
   
       <script type="text/javascript">
         function renderMessage(message) {
-          $('.messages').append('<div class="message"><strong> '+ message.author +' </strong>: '+ message.message +' </div>');
+          $('.outgoing_msg').append('<div class="sent_msg"><strong><p> '+ username +' </strong>: '+ message.message + '</p><span class="time_date">' + document.write(new Date) + '</div>');
         }
       </script>
   
   
       <script type="text/javascript">
   
-        var socket = io('http://localhost:8888');
+        let socket = io('http://localhost:8888');
   
         socket.on('previousMessage', function(messages) {
           for(message of messages){
@@ -93,12 +93,10 @@
   
         $('#chat').submit(function(event) {
           event.preventDefault();
-          var author = $([session]).val();
-          var message = $('input[name=message]').val();
+          let message = $('input[name=message]').val();
   
-          if(author.length && message.length){
+          if(message.length){
             var messageObject = {
-              author: author,
               message: message,
             };
             socket.emit('sendMessage', messageObject);
