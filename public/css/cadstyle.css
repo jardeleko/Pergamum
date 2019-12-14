@@ -39,7 +39,7 @@ table {
 }
 
 /*-- start editing from here --*/
-a {
+a{
   text-decoration: none;
 }
 
@@ -105,6 +105,23 @@ nav.horizontal ul li {
 /* horizontal menu */
 img {
   max-width: 100%;
+}
+
+#botoes{
+  margin-top: 20%;
+  text-decoration: none;
+}
+.btn-green:hover{
+  border:1px solid green;
+  transition:.8s;
+}
+.btn-blue:hover{
+border:5px #17a2b8 !important;
+transition: .8s;
+}
+
+#msg-home{
+   font-family:'Dancing Script', cursive;
 }
 
 /*-- end reset --*/
@@ -493,6 +510,14 @@ input.checkbox:checked:after {
 color: red;
   border: 2px solid red;
   margin-top:50%;
+}
+
+.text-data{
+  width:99%;
+  padding-top:5%;
+  background-color: transparent;
+  margin-top:5%;
+  color: #fff;
 }
 
 .colorlib-bubbles li:nth-child(10) {
