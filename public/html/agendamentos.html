@@ -1,56 +1,59 @@
+<!DOCTYPE html>
+<html>
 <head>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <title>Pergamum </title>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/cadstyle.css">
-
+<title>Pergamum</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="css/cadstyle.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- //web font -->
 </head>
-
 <body>
   <header>
-    <nav class="navbar navbar-ligth navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-<!-- (to top, #519387, #8DC26F); -->
-      <form class="form-inline">
-          <div class="form-inline my-2 my-lg-0">
-            <ul class="navbar-nav mr-auto">
-              <li>
-                <a class="nav-link" href="/logout" tabindex="-1" aria-disabled="true"> Sair </a>
-              </li>
-            </ul>
-          </div>
-      </form>
-    </nav>
+  
   </header>
-  <br><br>
+  <!-- main -->
+  <div class="main-w3layouts wrapper">
+    <h1>Agendamentos - SAE</h1>
+    <div class="main-agileinfo">
+      <div class="agileits-top">
 
-  <div class="container container-fluid">  
-      <div>
-        <h1>Agendamentos - SAE</h1>
+        <form action="/createAcc" method="POST">
+          <input class="text" type="text" alt="username" name="username" placeholder="usuário" required="">
+          <input class="text email" type="email" alt="entre com o email" name="email_sign" placeholder="Email" required="">
+          <input class="text" type="text" alt="Assunto do agendamento" name="assunto" placeholder="Assunto" required="">
+
+          <input class="text" type="date" alt="data do agendamento" name="data" placeholder="data" required="">
+         
+          <div class="wthree-text">
+            <div class="clear"> </div>
+          </div>
+          <input type="submit" alt="clique para agendar" value="AGENDAR">
+        </form>
       </div>
-    
-  </div>
-
-  <div>
-     <ul class="colorlib-bubbles">
-      <li>§</li>
-      <li>Acessibilidade</li>
-      <li>Igualdade</li>
-      <li>Amor</li>
-      <li>Sustentabilidade</li>
-      <li>Arte</li>
-      <li>Resistência</li>
-      <li>Amizade</li>
-      <li>Educação</li>
-      <li>π</li>
+    </div>
+    <!-- //copyright -->
+    <ul class="colorlib-bubbles">
+          <li>§</li>
+          <li>Acessibilidade</li>
+          <li>Igualdade</li>
+          <li>Amor</li>
+          <li>Sustentabilidade</li>
+          <li>Arte</li>
+          <li>Resistência</li>
+          <li>Amizade</li>
+          <li>Educação</li>
+          <li>π</li>
     </ul>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+  <footer>
+    <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+  </footer>
+  <!-- //main -->
 </body>
 </html>

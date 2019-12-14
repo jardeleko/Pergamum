@@ -1,11 +1,6 @@
 const connect = require('./con')
 
-const Users = connect.sequelize.define('users', {
-	id: {
-		type: connect.Sequelize.INTEGER,
-		autoIncrement: true,
-		primaryKey: true
-	},
+const Agendamentos = connect.sequelize.define('agendamentos', {
 	user: {
 		type: connect.Sequelize.STRING,
 		allowNull: false  
@@ -14,9 +9,13 @@ const Users = connect.sequelize.define('users', {
 		type: connect.Sequelize.STRING,
 		allowNull: false 
 	},
-	passw: {
+	assunto: {
 		type: connect.Sequelize.STRING,
 		allowNull: false
+	},
+
+	data: {
+		type: connect.Sequelize.Date
 	},
 
 	iServer: {
@@ -24,5 +23,5 @@ const Users = connect.sequelize.define('users', {
 	}
 })
 
-module.exports = Users;
-// Users.sync({force:true})
+module.exports = Agendamentos;
+Agendamentos.sync({force:true})
