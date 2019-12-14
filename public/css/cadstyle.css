@@ -488,6 +488,13 @@ input.checkbox:checked:after {
   border-radius: 10px;
 }
 
+.botoes{
+
+color: red;
+  border: 2px solid red;
+  margin-top:50%;
+}
+
 .colorlib-bubbles li:nth-child(10) {
   left: 90%;
   width: 160px;

@@ -52,20 +52,30 @@ router.get('/', (req, res) =>  {
 	res.render('index')
   })
   
-router.get('/chat', (req, res) => {
+router.get('/menu', (req, res) => {
 	if(req.isAuthenticated())
-		res.render('html/home', {username : res.locals.user.user})
+		res.render('html/opcoes', {username : res.locals.user.user})
 })
   
-router.get('/menu', (req, res) => {
+router.get('/create', (req, res) => {
 	res.render('html/cadaster')
 })
 
-router.get('/create', (req, res) => {
-	res.render('html/opcoes')
+router.get('/chat', (req, res) => {
+	if(req.isAuthenticated()){
+	  res.render('html/chat')
+	}else{
+		res.render('index')
+	}
 })
-
-
+router.get('/agendamentos', (req, res) => {
+	if(req.isAuthenticated()){
+		res.render('html/agendamentos')
+	}
+	else{
+		res.render('index')
+	}
+})
 
 router.post('/createAcc',(req, res) => { /* create User*/
 	
