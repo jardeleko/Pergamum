@@ -28,7 +28,7 @@ router.use(flash())
 
 router.post('/', (req, res, next) => { 
 	passport.authenticate("local", {
-		successRedirect: "/chat",
+		successRedirect: "/menu",
 		failureRedirect: "/",
 		failureFlash: true 
 	})(req, res, next)
@@ -57,9 +57,15 @@ router.get('/chat', (req, res) => {
 		res.render('html/home', {username : res.locals.user.user})
 })
   
-router.get('/create', (req, res) => {
+router.get('/menu', (req, res) => {
 	res.render('html/cadaster')
 })
+
+router.get('/create', (req, res) => {
+	res.render('html/opcoes')
+})
+
+
 
 router.post('/createAcc',(req, res) => { /* create User*/
 	

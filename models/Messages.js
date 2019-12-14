@@ -19,4 +19,4 @@ const Messages = connect.sequelize.define('message', {
 })
 
 module.exports = Messages;
-//Messages.sync({force:true})
+Messages.sync({force:true})

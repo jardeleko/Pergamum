@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const sequelize = new Sequelize('PERGDB', 'root', '', {
+const sequelize = new Sequelize('PERGDB', 'root', 'root', {
 	host: "localhost",
 	dialect: 'mysql'
 })
@@ -13,6 +13,4 @@ const sequelize = new Sequelize('PERGDB', 'root', '', {
 	console.log("conectado com sucesso!")
 }).catch(function(erro){
 	catchonsole.log("Falha ao se conectar! " + erro)
-}) 
-
-*/
+}) */
