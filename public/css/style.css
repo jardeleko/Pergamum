@@ -15,7 +15,8 @@ body {
     background:#519387;
     text-transform: uppercase;
 }
-/* #loginButton_0:hover{
-    background:
-} */
 
+#botoes{
+
+	color: red;
+}
