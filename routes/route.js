@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const methodOverride = require('method-override') // REST-API
 const Users = require('../models/Users')
+const Calender = require('../models/Calender')
 const bcrypt = require('bcryptjs');
 const bodyParser = require('body-parser')
 const session = require("express-session");
@@ -69,18 +70,17 @@ router.get('/chat', (req, res) => {
 	}
 })
 router.get('/agendamentos', (req, res) => {
-	if(req.isAuthenticated()){
+	if(req.isAuthenticated() && req.user.iServer == 1){
 		res.render('html/agendamentos')
 	}
-	else{
-		res.render('index')
+	else if(req.isAuthenticated()){
+		res.render('html/listDate')
 	}
 })
 
 router.post('/createAcc',(req, res) => { /* create User*/
 	
 	let erros = []
-
 
 	if(!req.body.username || typeof req.body.username == undefined || req.body.username == null){
 		erros.push({message: "campo usuario esta vazio, crie um @username"})
@@ -125,5 +125,52 @@ router.post('/createAcc',(req, res) => { /* create User*/
 		})	
 	}
 })
+
+router.post('/calender', (req, res) => {
+	let erros = [];
+	if(!req.body.username || typeof req.body.username == undefined || req.body.username == null){
+		erros.push({message: "campo usuario esta vazio, crie um @username"})
+	}
+	if(!req.body.email_sign || typeof req.body.email_sign == undefined || req.body.email_sign == null){
+		erros.push({message: "É necessario um email para o cadastro"})
+	} 
+	if(!req.body.assunto || typeof req.body.assunto == undefined || req.body.assunto == null){
+		erros.push({message: "Necessario incluir um assunto"})
+	}
+	if(!req.body.data || typeof req.body.data == undefined || req.body.data == null){
+		erros.push({message: "Escolha uma data disponível"})
+	}
+	if(erros.length > 0){
+		res.render('html/agendamentos', {erros: erros})
+	}
+	else {	
+		console.log(req.body.username)
+		console.log(req.body.email_sign)
+		console.log(req.body.assunto)
+		console.log(req.body.data)
+
+			Calender.create({
+			user: req.body.username,
+			email: req.body.email_sign,
+			content: req.body.assunto,
+			createdAt: req.body.data
+
+		}).then(() => {
+			req.flash("success_msg", "Horario incluído");
+			res.redirect('/agendamentos');
+		}).catch((err) => {
+			console.log(err)
+			req.flash("error_msg", "Algum erro inesperado, tente alterar a data!");
+			res.redirect('/create')
+		})	
+	}
+})
+
+
+
+
+
+
+
 
 module.exports = router;
