@@ -14,9 +14,9 @@ const Messages = connect.sequelize.define('message', {
 	content: {
 		type: connect.Sequelize.STRING,
 		allowNull: false
-	}
+	}	
 
 })
 
 module.exports = Messages;
-Messages.sync({force:true})
+//Messages.sync({force:true})
