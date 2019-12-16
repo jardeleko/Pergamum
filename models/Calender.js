@@ -24,4 +24,4 @@ const Calender = connect.sequelize.define('calender', {
 })
 
 module.exports = Calender;
-Calender.sync({force:true})
+//Calender.sync({force:true})

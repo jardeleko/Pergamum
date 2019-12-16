@@ -121,10 +121,8 @@ router.get('/agendamentos', (req, res) => {
 router.post('/createAcc',(req, res) => { 
 	
 	let erros = []
-<<<<<<< HEAD
 	let cliente = req.body
-=======
->>>>>>> c0e8cdae607800d8faf4b9211bc4b030738743f8
+
 
 	if(!req.body.username || typeof req.body.username == undefined || req.body.username == null){
 		erros.push({message: "O campo usuário não pode estar vazío!"})
@@ -203,12 +201,5 @@ router.post('/calender', (req, res) => {
 		})	
 	}
 })
-
-
-
-
-
-
-
 
 module.exports = router;

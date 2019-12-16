@@ -15,22 +15,21 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-ligth navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-<!-- (to top, #519387, #8DC26F); -->
-      <form class="form-inline">
-          <div class="form-inline my-2 my-lg-0">
-            <ul class="navbar-nav ml-auto">
-              <li>
-                <a class="nav-link" href="/logout" tabindex="-1" aria-disabled="true"> Sair </a>
-              </li>
-            </ul>
-          </div>
-      </form>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">UFFS</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="/agendamentos">Agendamentos</a>
+          <a class="nav-item nav-link" href="/chat">Chat</a>
+          <a class="nav-item nav-link disabled" href="/logout" tabindex="-1" aria-disabled="true">Sair</a>
+        </div>
+      </div>
     </nav>
-  </header>
+   </header>
 
   <div class="container container-fluid" >  
        <div id="botoes">
