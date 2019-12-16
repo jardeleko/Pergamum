@@ -16,8 +16,12 @@ const Calender = connect.sequelize.define('calender', {
 	createdAt: {
 		type: connect.Sequelize.DATE,
 		allowNull: false
+	},
+	updatedAt: {
+		type: connect.Sequelize.DATE,
+		allowNull: false
 	}
 })
 
 module.exports = Calender;
-//Calender.sync({force:true})
+Calender.sync({force:true})
