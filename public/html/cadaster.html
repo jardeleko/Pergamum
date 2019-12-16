@@ -21,23 +21,22 @@
 		<h1>Crie sua conta</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
-
+				
 				<form action="/createAcc" method="POST">
-					<input class="text" type="text" alt="entre com o id uffs" name="username" placeholder="Id-UFFS" required="">
-					<input class="text email" type="email" alt="entre com o email" name="email_sign" placeholder="Email" required="">
-					<input class="text" type="password" alt="entre com a senha" name="pass_sign" placeholder="Senha" required="">
-					<input class="text w3lpass" type="password" alt="confirme a senha" name="pass_sign2" placeholder="Confirmar Senha" required="">
-
+					<input class="text" type="text" alt="entre com o id uffs" name="username" value="" placeholder="Id-UFFS">
+					<input class="text email" type="email" alt="entre com o email" name="email_sign" value="" placeholder="Email">
+					<input class="text" type="password" alt="entre com a senha" name="pass_sign" placeholder="Senha">
+					<input class="text w3lpass" type="password" alt="confirme a senha" name="pass_sign2" placeholder="Confirmar Senha">
 					<div class="wthree-text">
 						<label class="anim">
-							<input type="checkbox" class="checkbox" required="">
+							<input type="checkbox" class="checkbox">
 							<span>Estou de acordo com os termos e condições</span>
 						</label>
 						<div class="clear"> </div>
 					</div>
 					<input type="submit" alt="clique para enviar" value="ENVIAR">
 				</form>
-				<p>Já possui uma conta? <a alt="clique e faça login" href="/">Conecte-se!</a></p>
+				<p>Já possui uma conta? <a alt="clique e faça login" href="/create">Conecte-se!</a></p>
 				<br>
 				<p><a href="#" alt="página com o regulamento"> Termos e Condições</a></p>
 			</div>

@@ -68,24 +68,63 @@ router.get('/chat', (req, res) => {
 		res.render('index')
 	}
 })
+
 router.get('/agendamentos', (req, res) => {
 	if(req.isAuthenticated()){
 		res.render('html/agendamentos')
+	
+		let errors = []
+		let calender = req.body
+		var data_atual = new Date().toDateString()
+		var data = req.body.data
+		if (!req.body.username || typeof req.body.username == undefined || req.body.username == null ) {
+			errors.push({message:'Preencha o nome do usuário'}) 
+		}
+
+		if (!req.body.assunto || typeof req.body.assunto == undefined || req.body.assunto == null ) {
+			errors.push({message:'Preencha o campo assunto'}) 
+		}
+
+		if (!req.body.data || typeof req.body.data == undefined || req.body.data == null ) {
+			errors.push({message:'Preencha o campo data'}) 
+		}
+
+		if (data.toDateString() <= data_atual) {
+			errors.push({message:'Escolher uma data posterior!'}) 
+		}
+
+		if(errors.length > 0){
+			res.render('html/agendamentos', {errors: errors, calender: calender})
+		}else{
+			Calenders.create({
+				user: req.body.username,
+				email: req.body.email,
+				content: req.body.assunto,
+				createdAt: data,
+				updateAt: data_atual,
+
+			}).then(() => {
+				req.flash("success_msg", "Agendamento realizado com sucesso");
+				res.redirect('/opcoes');
+			}).catch((err) => {
+				req.flash("error_msg", "Erro ao realizar o agendamento, tente novamente!");
+				res.redirect('/agendamentos')
+			})	
+		}
 	}
 	else{
 		res.render('index')
 	}
 })
 
-router.post('/createAcc',(req, res) => { /* create User*/
+router.post('/createAcc',(req, res) => { 
 	
 	let erros = []
-
+	let cliente = req.body
 
 	if(!req.body.username || typeof req.body.username == undefined || req.body.username == null){
-		erros.push({message: "campo usuario esta vazio, crie um @username"})
+		erros.push({message: "O campo usuário não pode estar vazío!"})
 	}
-
 	if(!req.body.email_sign || typeof req.body.email_sign == undefined || req.body.email_sign == null){
 		erros.push({message: "É necessario um email para o cadastro"})
 	} 
@@ -99,18 +138,14 @@ router.post('/createAcc',(req, res) => { /* create User*/
 		erros.push({message: "É necessário no mínimo 8 caracteres na senha"})
 	}
 	if(erros.length > 0){
-		res.render('html/cadaster', {erros: erros})
-	}
-	
-	else {	
-		//hashing password
+		res.render('html/cadaster', {erros: erros, cliente: cliente})
+	}else {	
 		let password = req.body.pass_sign;
 		const salt = bcrypt.genSaltSync(10);
 		const hash = bcrypt.hashSync(password, salt); 
 		password = hash;
-		console.log(password)
 
-			Users.create({
+		Users.create({
 			user: req.body.username,
 			email: req.body.email_sign,
 			passw: password,
@@ -119,7 +154,6 @@ router.post('/createAcc',(req, res) => { /* create User*/
 			req.flash("success_msg", "Usuario cadastrado");
 			res.redirect('/');
 		}).catch((err) => {
-			console.log(err)
 			req.flash("error_msg", "Erro ao salvar o usuario, tente novamente!");
 			res.redirect('/create')
 		})	
