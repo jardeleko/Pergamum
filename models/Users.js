@@ -25,4 +25,8 @@ const Users = connect.sequelize.define('users', {
 })
 
 module.exports = Users;
+<<<<<<< HEAD
 //Users.sync({force:true})
+=======
+
+>>>>>>> c0e8cdae607800d8faf4b9211bc4b030738743f8
