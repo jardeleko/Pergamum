@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const sequelize = new Sequelize('PERGDB', 'root', '', {
+const sequelize = new Sequelize('PERGDB', 'root', 'root', {
 	host: "localhost",
 	dialect: 'mysql'
 })
